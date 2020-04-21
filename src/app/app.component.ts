@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Covid19APIService } from './api/covid19-api.service';
 
 @Component({
