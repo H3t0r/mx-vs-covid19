@@ -7,7 +7,9 @@
   gdAreas.gt-sm="overall overall | lines bars"
   gdAreas.xs="overall | lines | bars"
 >
-  <div gdArea="overall">Overall</div>
+  <div gdArea="overall">
+    <pre>{{ data$ | async | json }}</pre>
+  </div>
   <div gdArea="lines">Lines</div>
   <div gdArea="bars">Bars</div>
 </div>
