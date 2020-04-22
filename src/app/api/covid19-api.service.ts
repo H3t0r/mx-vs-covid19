@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
-import { Summary } from '../models/covidAPI.model';
+import { Country, Summary } from '../models/covidAPI.model';
+import { Observable } from 'rxjs';
+import { SingleSeries } from '@swimlane/ngx-charts';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +14,28 @@ export class Covid19APIService {
 
   constructor(private http: HttpClient) {}
 
-  getSummary(): Observable<Summary> {
+  getSummary(): Observable<SingleSeries> {
     return this.http
       .get<Summary>(this.baseURL + 'summary')
-      .pipe(map((summary) => summary));
+      .pipe(map((summary) => this.getSingleSeries(summary.Global)));
+  }
+
+  private getSingleSeries(country: Country): SingleSeries {
+    const { TotalConfirmed, TotalDeaths, TotalRecovered } = country;
+
+    return [
+      {
+        name: 'Confirmed',
+        value: TotalConfirmed,
+      },
+      {
+        name: 'Deaths',
+        value: TotalDeaths,
+      },
+      {
+        name: 'Recovered',
+        value: TotalRecovered,
+      },
+    ];
   }
 }

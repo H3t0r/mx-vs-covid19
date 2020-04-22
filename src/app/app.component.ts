@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
   constructor(private covid: Covid19APIService) {}
 
   ngOnInit() {
-    this.data$ = this.covid.getSummary();
+    // this.data$ = this.covid.getSummary();
   }
 }
