@@ -9,9 +9,10 @@ import { NumberCardModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import { OverallComponent } from './components/overall/overall.component';
+import { ProgressComponent } from './components/progress/progress.component';
 
 @NgModule({
-  declarations: [AppComponent, OverallComponent],
+  declarations: [AppComponent, OverallComponent, ProgressComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
