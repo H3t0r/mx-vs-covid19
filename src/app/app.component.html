@@ -3,13 +3,8 @@
     <span>MX vs COVID</span>
   </mat-toolbar-row>
 </mat-toolbar>
-<div
-  gdAreas.gt-sm="overall overall | lines bars"
-  gdAreas.xs="overall | lines | bars"
->
-  <div gdArea="overall">
-    <pre>{{ data$ | async | json }}</pre>
-  </div>
-  <div gdArea="lines">Lines</div>
-  <div gdArea="bars">Bars</div>
+<div class="wrapper">
+  <section class="overall"><app-overall></app-overall></section>
+  <section class="lines">Lines</section>
+  <section class="bars">Bars</section>
 </div>
