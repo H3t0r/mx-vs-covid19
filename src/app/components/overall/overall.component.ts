@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Covid19APIService } from 'src/app/api/covid19-api.service';
 import { SingleSeries } from '@swimlane/ngx-charts';
 import { Observable } from 'rxjs';
+import { ChartAdapterService } from 'src/app/adapter/chart-adapter.service';
 
 @Component({
   selector: 'app-overall',
@@ -14,11 +14,20 @@ export class OverallComponent implements OnInit {
   cardColor = '#222837';
   results$: Observable<SingleSeries>;
   scheme = 'cool';
-  view = [340, 200];
+  view = null;
 
-  constructor(private covid: Covid19APIService) {}
+  constructor(private chartAdapter: ChartAdapterService) {}
 
   ngOnInit(): void {
-    this.results$ = this.covid.getSummary();
+    this.results$ = this.chartAdapter.getGlobalAndMXSummary();
+  }
+
+  /**
+   * TODO
+   * Work on the chart responsiveness
+   * @param event
+   */
+  onResize(event) {
+    console.log(event.target.innerWidth);
   }
 }
