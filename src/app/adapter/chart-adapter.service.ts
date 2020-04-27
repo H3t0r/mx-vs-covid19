@@ -25,8 +25,8 @@ export class ChartAdapterService {
   }
 
   getProgressInMexico(): Observable<MultiSeries> {
-    const to = this.getTodaysDate();
-    const from = this.getLastMonthsDate();
+    const to = this.getTodaysDateISO();
+    const from = this.getLastMonthsDateISO();
 
     return this.covidAPI
       .getByCountryAllStatus('mexico', from, to)
@@ -43,23 +43,25 @@ export class ChartAdapterService {
       Deaths: dValue,
       Recovered: rValue,
     } = item;
-    const [confirmed, deaths, recovered] = state;
+    const [confirmed, recovered, deaths] = state;
 
-    confirmed.series.push({ name: date, value: cValue });
-    deaths.series.push({ name: date, value: dValue });
-    recovered.series.push({ name: date, value: rValue });
+    const formattedDate = new Date(date).toLocaleDateString();
+
+    confirmed.series.push({ name: formattedDate, value: cValue });
+    deaths.series.push({ name: formattedDate, value: dValue });
+    recovered.series.push({ name: formattedDate, value: rValue });
 
     return state;
   }
 
-  private getTodaysDate(): string {
+  private getTodaysDateISO(): string {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     return today.toISOString().split('.')[0] + 'Z';
   }
 
-  private getLastMonthsDate(): string {
+  private getLastMonthsDateISO(): string {
     const today = new Date();
     const lastMonth = new Date();
 
@@ -95,11 +97,11 @@ export class ChartAdapterService {
         series: [],
       },
       {
-        name: 'Deaths',
+        name: 'Recovered',
         series: [],
       },
       {
-        name: 'Recovered',
+        name: 'Deaths',
         series: [],
       },
     ];
