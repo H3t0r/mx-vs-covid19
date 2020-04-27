@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { ChartAdapterService } from 'src/app/adapter/chart-adapter.service';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { MultiSeries } from '@swimlane/ngx-charts';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-progress',

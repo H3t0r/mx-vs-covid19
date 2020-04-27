@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
-import { Summary, Countries } from '../models/covidAPI.model';
+import { Countries, Summary } from '../models/covidAPI.model';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';

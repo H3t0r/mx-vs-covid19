@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 
 import { Covid19APIService } from '../api/covid19-api.service';
 import { Country } from '../models/covidAPI.model';
-import { SingleSeries, MultiSeries } from '@swimlane/ngx-charts';
+import { MultiSeries, SingleSeries } from '@swimlane/ngx-charts';
 import { Observable } from 'rxjs';
 
 @Injectable({
