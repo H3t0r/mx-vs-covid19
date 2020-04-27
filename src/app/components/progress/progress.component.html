@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>COVID progress in Mexico</mat-card-title>
+  <mat-card-content>
+    <ngx-charts-area-chart
+      [legend]="legend"
+      legendTitle=""
+      [legendPosition]="legendPosition"
+      [results]="results$ | async"
+      [scheme]="scheme"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [timeline]="timeline"
+      [view]="view"
+      [xAxis]="xAxis"
+      [xAxisLabel]="xAxisLabel"
+      [yAxis]="yAxis"
+      [yAxisLabel]="yAxisLabel"
+      style="fill: #a0a8be;"
+    >
+    </ngx-charts-area-chart>
+  </mat-card-content>
+</mat-card>

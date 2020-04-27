@@ -5,13 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
-import { NumberCardModule } from '@swimlane/ngx-charts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import { OverallComponent } from './components/overall/overall.component';
+import { ProgressComponent } from './components/progress/progress.component';
 
 @NgModule({
-  declarations: [AppComponent, OverallComponent],
+  declarations: [AppComponent, OverallComponent, ProgressComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -19,7 +20,7 @@ import { OverallComponent } from './components/overall/overall.component';
     HttpClientModule,
     MatCardModule,
     MatToolbarModule,
-    NumberCardModule,
+    NgxChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
